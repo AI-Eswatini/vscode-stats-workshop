@@ -5,11 +5,8 @@ Then open:    http://localhost:8000
 """
 
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-import os
 
-# Hosting sites (like Render) tell us which port to use. On your computer we use 8000.
-PORT = int(os.environ.get("PORT", 8000))
-HOST = "0.0.0.0" if "PORT" in os.environ else "localhost"
+PORT = 8000
 
 # Try changing this message, save the file, restart the server and refresh the page!
 MESSAGE = "Hello from my first web server!"
@@ -38,7 +35,7 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    server = ThreadingHTTPServer((HOST, PORT), Handler)
+    server = ThreadingHTTPServer(("localhost", PORT), Handler)
     print(f"Server running at http://localhost:{PORT}  (press Ctrl+C to stop)")
     try:
         server.serve_forever()
