@@ -53,7 +53,7 @@ When you open this repo's folder in VS Code, a pop-up in the bottom-right corner
 
 ### Be careful with extensions
 
-Anyone can publish an extension, so stick to well-known publishers (like Microsoft) and extensions with lots of downloads. Avoid installing random extensions you don't need.
+Anyone can publish an extension, so stick to well-known publishers and extensions with lots of downloads. Avoid installing random extensions you don't need.
 
 ## 3. The example project
 
@@ -66,6 +66,98 @@ The [example/](example/) folder has a simple "Hello, world!" Python program. We'
 - (Optional) Tracking changes with Git and pushing to GitHub
 
 Follow the steps in [example/README.md](example/README.md).
+
+## 4. Source control (Git in VS Code)
+
+VS Code has Git built in, so you can track changes without typing Git commands. Open it with the **Source Control** icon on the left sidebar (it looks like a branch with three dots), or press `Ctrl + Shift + G`.
+
+### Start tracking a folder
+
+If the folder isn't a Git repo yet, click **Initialize Repository**. If you want it on GitHub straight away, click **Publish to GitHub** instead and sign in when asked.
+
+### What the letters mean
+
+Next to each changed file you'll see a letter:
+
+| Letter | Meaning |
+|---|---|
+| **U** | Untracked: a new file Git hasn't seen before |
+| **M** | Modified: an existing file you've changed |
+| **D** | Deleted: a file you've removed |
+| **A** | Added: a new file you've staged |
+
+### Save a snapshot (commit)
+
+1. Click a file in the **Changes** list to see exactly what changed (old version on the left, new on the right).
+2. Hover over the file and click **+** to **stage** it (choose it for the next snapshot). Click **+** next to **Changes** to stage everything.
+3. Type a short message in the box at the top describing what you did, e.g. `Add greeting function`.
+4. Click **Commit**.
+
+### Send your work to GitHub
+
+Click **Sync Changes** (or **Publish Branch** the first time). This pushes your commits to GitHub and pulls down any new changes from there.
+
+### Undo a change
+
+Hover over a file under **Changes** and click the curved arrow (**Discard Changes**) to put it back the way it was at the last commit. Be careful: this can't be undone.
+
+## 5. Timeline
+
+The **Timeline** shows the history of the file you have open. Find it at the bottom of the **Explorer** panel (`Ctrl + Shift + E`); if you can't see it, right-click the Explorer header and tick **Timeline**.
+
+It lists two kinds of entries:
+
+- **Git commits** that changed this file, with their message and author.
+- **Local history**: VS Code saves a copy every time you save the file, even if you're not using Git.
+
+Click any entry to compare that version with the current one. To go back to an old version, right-click a local history entry and choose **Restore Contents**. This is a lifesaver if you accidentally delete code.
+
+## 6. Configurations and nice-to-haves
+
+### Turn on Auto Save
+
+By default VS Code only saves when you press `Ctrl + S`, and unsaved files show a dot (●) on their tab. To save automatically, click **File > Auto Save**.
+
+To fine-tune it, open Settings (`Ctrl + ,`), search for **auto save**, and pick:
+
+- `afterDelay`: saves a moment after you stop typing (the default when you turn it on)
+- `onFocusChange`: saves when you click into another file or panel
+- `onWindowChange`: saves when you switch to another app
+
+### Find files fast with `Ctrl + P`
+
+Press `Ctrl + P` and start typing part of a file name, e.g. `hello`. Press `Enter` to open it. This is much quicker than clicking through folders.
+
+You can also type a symbol at the start of the `Ctrl + P` box:
+
+| Type | What it does |
+|---|---|
+| `>` | Run a command (same as `Ctrl + Shift + P`, the **Command Palette**) |
+| `:` | Go to a line number, e.g. `:25` |
+| `@` | Jump to a function or class in the current file |
+
+If you only remember one shortcut, make it `Ctrl + Shift + P`: you can type what you want to do (e.g. "change theme", "toggle word wrap") and VS Code will find it.
+
+### Search
+
+- `Ctrl + F`: find text in the current file. `Ctrl + H` finds and replaces.
+- `Ctrl + Shift + F`: search across **every file** in the folder. Click a result to jump to it. Use the arrow on the left of the search box to replace across all files.
+
+### Other handy settings
+
+| What | How |
+|---|---|
+| Format code automatically when saving | Settings (`Ctrl + ,`) > search **format on save** > tick it |
+| Wrap long lines so you don't scroll sideways | `Alt + Z` |
+| Make the text bigger or smaller | `Ctrl + =` / `Ctrl + -` |
+| Change the colour theme | `Ctrl + K` then `Ctrl + T` |
+| Show/hide the sidebar | `Ctrl + B` |
+| Show/hide the terminal | `` Ctrl + ` `` |
+| Comment/uncomment a line | `Ctrl + /` |
+| Move a line up or down | `Alt + ↑` / `Alt + ↓` |
+| Edit several places at once | Hold `Alt` and click where you want extra cursors |
+
+> **Mac users:** swap `Ctrl` for `Cmd` and `Alt` for `Option` in the shortcuts above.
 
 ## Need help?
 
