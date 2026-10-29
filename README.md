@@ -44,6 +44,7 @@ The [example/](example/) folder has a tiny Python web server. We'll use it to pr
 - Using the built-in terminal
 - Running and editing code
 - (Optional) Tracking changes with Git and pushing to GitHub
+- (Optional) Deploying it to the internet with Render
 
 Follow the steps in [example/README.md](example/README.md).
 

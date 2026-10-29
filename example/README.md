@@ -90,6 +90,32 @@ git log --oneline                # list your commits
 
 From now on, after each commit you can click **Sync Changes** in VS Code's Source Control panel (or run `git push`) to upload it.
 
+## Part 4 (Optional): Put it on the internet
+
+So far your server only runs on your own computer (`localhost`). Let's deploy it so anyone can visit it. We'll use [Render](https://render.com), which has a free plan. You'll need your code on GitHub first (Part 3.4).
+
+1. Go to https://render.com and click **Get Started**. Sign up with your **GitHub** account.
+2. Click **+ New** > **Web Service**, then pick your repository from the list.
+3. Fill in the settings. These matter, so check each one:
+
+   | Setting | Value |
+   |---|---|
+   | **Language** | `Python 3` |
+   | **Root Directory** | `example` (leave empty if `server.py` is at the top of your repo) |
+   | **Build Command** | `pip install -r requirements.txt` |
+   | **Start Command** | `python server.py` |
+   | **Instance Type** | `Free` |
+
+4. Click **Deploy Web Service** and watch the logs. When you see `Server running at ...`, it's live.
+5. Click the link at the top of the page (something like `https://my-web-server.onrender.com`) to see your site.
+
+**The best part:** every time you `git push`, Render deploys the new version for you automatically. Change `MESSAGE`, commit, push, and refresh your live site a minute later.
+
+> **Things to know**
+> - On the free plan, the site goes to sleep after 15 minutes without visitors. The next visit takes about a minute to wake it up.
+> - If the logs say **"Starting FastAPI... Could not find a default file to run"**, the Start Command is wrong. Go to **Settings**, set it to `python server.py`, and redeploy.
+> - Why does `server.py` read a `PORT` variable? Render chooses which port your app must use and passes it in. On your own computer there's no `PORT`, so it falls back to 8000.
+
 ## Challenges
 
 - Change the page colour by editing the `color` in the `<style>` section.
